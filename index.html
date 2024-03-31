@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+</head>
+<body>
+    <!-- body and start button -->
+    <div>
+        <h1>Tic Tac Toe</h1>
+    </div>
+    <div class="centeredButtons">
+        <button id="startButton">Start Game</button>
+    </div>
+
+    <!-- The actual Game -->
+    <div class="game">
+        <h1>Player 1: X</h1>
+        <div class="centeredButtons">
+            <button value="0 0" class="gameButton"></button>
+            <button value="0 1" class="gameButton"></button>
+            <button value="0 2" class="gameButton"></button>
+        </div>
+        <div class="centeredButtons">
+            <button value="1 0" class="gameButton"></button>
+            <button value="1 1" class="gameButton"></button>
+            <button value="1 2" class="gameButton"></button>
+        </div>
+        <div class="centeredButtons">
+            <button value="2 0" class="gameButton"></button>
+            <button value="2 1" class="gameButton"></button>
+            <button value="2 2" class="gameButton"></button>
+        </div>
+        <h1>Player 2: O</h1>
+    </div>
+
+    <!-- Win Dialog Box -->
+    <dialog id="winDialog">
+        <form method="dialog">
+            <h2>Win Text</h2>
+            <div class="centeredButtons">
+                <button>Ok</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src='script.js'></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Body */
+body{
+    background-color: rgb(90, 40, 90);
+    font-family: cursive;
+}
+h1{
+    text-align: center;
+}
+
+/* Buttons */
+#startButton{
+    width: 150px;
+    height: 50px;
+}
+.centeredButtons{
+    display: flex;
+    justify-content: center;
+}
+
+/* Game */
+.game{
+    margin: 100px;
+    display: none;
+}
+.gameButton{
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+}
