@@ -80,7 +80,8 @@ button:hover{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 400px;
+    height: 300px;
+    flex-wrap: wrap;
 }
 .gameButton{
     width: 80px;
