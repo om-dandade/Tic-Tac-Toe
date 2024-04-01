@@ -64,8 +64,9 @@ const gameBorad = function(){
     };
     return{grid, totalTurns, printBoard, isWin, reset};
 }();
-function createPlayer(name){
-    return {name};
+function createPlayer(name, scoreEle, sing){
+    let score = 0;
+    return {name, scoreEle, score, sing};
 };
 
 //START BUTTON BEHAVIOR
@@ -86,8 +87,8 @@ gameButtons.forEach(button =>{
 const game = document.querySelector(".game");
 
 //GAME CONTROLLER
-const players = [createPlayer("player 1"), createPlayer("player 2")];
-const sing = ['X', 'O'];
+const players = [createPlayer("player 1", document.querySelector("#score1"), 'X'), 
+                createPlayer("player 2", document.querySelector("#score2"), 'O')];
 let turn = 0;
 var gameOver = false;
 
@@ -96,13 +97,17 @@ function gameButtonPressed(button){
     const [i, j] = button.value.split(" ");
     if(gameOver || gameBorad.grid[i][j] != 0)return;
 
-    button.textContent = sing[turn];
-    gameBorad.grid[i][j] = sing[turn];
+    button.textContent = players[turn].sing;
+    gameBorad.grid[i][j] = players[turn].sing;
     gameBorad.totalTurns++;
     
     const didWin = gameBorad.isWin(i, j);
     if(didWin || gameBorad.totalTurns >= 9){
-        if(didWin)winMsg(players[turn].name + " Wins!");
+        if(didWin){
+            winMsg(players[turn].name + " Wins!");  
+            players[turn].score++;
+            players[turn].scoreEle.textContent = "Score: " + players[turn].score;
+        }
         else winMsg("Draw!");
         gameOver = true;
     }
@@ -134,3 +139,10 @@ function winMsg(msg){
     winDialog.querySelector("h2").textContent = msg;
     winDialog.showModal();
 }
+
+const playerNames = document.querySelectorAll(".playerName");
+playerNames.forEach(nameFeild=>{
+    nameFeild.addEventListener("input", ()=>{
+        players[Number(nameFeild.id)].name = nameFeild.textContent;
+    });
+})
