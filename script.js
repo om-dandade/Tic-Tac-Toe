@@ -86,7 +86,7 @@ gameButtons.forEach(button =>{
 const game = document.querySelector(".game");
 
 //GAME CONTROLLER
-const players = [createPlayer("player1"), createPlayer("player2")];
+const players = [createPlayer("player 1"), createPlayer("player 2")];
 const sing = ['X', 'O'];
 let turn = 0;
 var gameOver = false;
@@ -98,8 +98,12 @@ function gameButtonPressed(button){
 
     button.textContent = sing[turn];
     gameBorad.grid[i][j] = sing[turn];
-    if(gameBorad.isWin(i, j)){
-        winMsg(players[turn].name);
+    gameBorad.totalTurns++;
+    
+    const didWin = gameBorad.isWin(i, j);
+    if(didWin || gameBorad.totalTurns >= 9){
+        if(didWin)winMsg(players[turn].name + " Wins!");
+        else winMsg("Draw!");
         gameOver = true;
     }
 
@@ -115,14 +119,18 @@ function resetGame(){
 function startGame(){
     gameBorad.reset();
     resetGame();
-    game.style.display = "block";
+    gameBorad.totalTurns = 0;
+    game.style.display = "flex";
     startButton.textContent = "Restart";
+    startButton.style.height = "55px";
+    startButton.style.width = "130px";
+    startButton.style.margin = "10px";
     gameOver = false;
     turn = 0;
 }
 
 const winDialog = document.getElementById("winDialog");
-function winMsg(name){
-    winDialog.querySelector("h2").textContent = name + " Wins!";
+function winMsg(msg){
+    winDialog.querySelector("h2").textContent = msg;
     winDialog.showModal();
 }
