@@ -143,6 +143,8 @@ function winMsg(msg){
 const playerNames = document.querySelectorAll(".playerName");
 playerNames.forEach(nameFeild=>{
     nameFeild.addEventListener("input", ()=>{
-        players[Number(nameFeild.id)].name = nameFeild.textContent;
+        console.log(nameFeild.value);
+        players[Number(nameFeild.id)].name = nameFeild.value;
+        nameFeild.style.borderBottom = "none";
     });
 })

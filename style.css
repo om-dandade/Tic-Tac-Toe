@@ -118,6 +118,26 @@ a{
 }
 
 /* Win Message */
+input{
+    background-color: rgba(255, 255, 255, 0);
+    height:40px;
+    width: 200px;
+    font-family: "Honk", system-ui;
+    font-size: 50px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin: 10px 50px;
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-bottom: solid rgba(0, 0, 0, 0.761) 2px;
+    padding-bottom: 10px;
+    margin: 10px;
+}
+input::placeholder {
+    opacity: 50%;
+}
+
 dialog{
     border-radius: 30px;
     background-color: var(--item);
