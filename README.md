@@ -2,7 +2,7 @@
 
 A simple Tic Tac Toe game implemented using HTML, CSS, and JavaScript.
 
-**Play the game:** [Tic Tac Toe](https://spectra82.github.io/Tic-Tac-Toe/)
+**Play the game:** [Tic Tac Toe](https://om-dandade.github.io/Tic-Tac-Toe/)
 
 ## Features
 - Classic Tic Tac Toe gameplay.
